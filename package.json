@@ -1,12 +1,15 @@
 {
   "name": "Brdgd",
   "version": "0.1.0",
-  "description": "",
+  "description": "Brdgd (read bridged) is an extremely simple p2p file transfer webapp",
   "main": "index.js",
   "scripts": {
     "start": "iced web.iced"
   },
-  "author": "",
+  "author": {
+    "name": "Mahmud Ridwan",
+    "email": "m@hjr265.me"
+  },
   "license": "BSD-2-Clause",
   "dependencies": {
     "coffee-script": "~1.6.3",
