@@ -1,0 +1,28 @@
+doctype 5
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		title Brdgd
+
+		link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Alegreya+Sans')
+		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/css/bootstrap.min.css')
+		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css')
+		link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.0.0/animate.min.css')
+		!= css('screen.css')
+
+		script(src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js')
+		script(src='//cdn.peerjs.com/0.3.6/peer.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.2/js/bootstrap.min.js')
+		script(src='//cdnjs.cloudflare.com/ajax/libs/numeral.js/1.5.2/numeral.min.js')
+
+	body
+		#address
+
+		h1
+			a(href='/') Brdgd
+
+		#buttons.btn-group
+
+		script(type='text/javascript', data-config='#{JSON.stringify(config)}')
+		!= js('brdgd.js')
