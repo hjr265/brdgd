@@ -25,20 +25,29 @@ class Brdgd
 			@peer.destroy()
 			@peer = null
 
-		$.get '/api/v1/turn/credential', (credential) =>
+		_announce = (ices) =>
 			@peer = new Peer id,
 				host: @config.PEERJS_HOST
 				port: @config.PEERJS_PORT
 				key: @config.PEERJS_KEY
 				config:
-					iceServers: [
-						url: "stun:#{@config.STUN_HOST}:#{@config.STUN_PORT}"
-					,	
-						url: "turn:#{credential.username}@#{@config.TURN_HOST}:#{@config.TURN_PORT}"
-						credential: credential.password
-					]
+					iceServers: ices
 				debug: @config.PEERJS_LOG
 			done()
+
+		ices = []
+		ices.push 
+			url: "stun:#{@config.STUN_HOST}:#{@config.STUN_PORT}"
+		if @config.TURN_HOST
+			$.get '/api/v1/turn/credential', (credential) =>
+				ices.push 
+					url: "turn:#{credential.username}@#{@config.TURN_HOST}:#{@config.TURN_PORT}"
+					credential: credential.password
+				
+				_announce ices
+
+		else
+			_announce ices
 
 	expose: (file) ->
 		@reset()
