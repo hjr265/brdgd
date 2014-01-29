@@ -202,8 +202,7 @@ $(window).on 'popstate', ->
 		else
 			brdgd.reset()
 
-if navigator.userAgent.match /firefox/i
-	$(window).trigger 'popstate'
+$(window).trigger 'popstate'
 
 
 $('a[href="/"]').on 'click', (event) ->
