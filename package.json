@@ -1,7 +1,7 @@
 {
   "name": "Brdgd",
   "version": "0.1.0",
-  "description": "Brdgd (read bridged) is an extremely simple p2p file transfer webapp",
+  "description": "Brdgd (read bridged) is an extremely simple P2P file transfer webapp",
   "main": "index.js",
   "scripts": {
     "start": "iced web.iced"

@@ -1,6 +1,6 @@
 # Brdgd
 
-Brdgd (read bridged) is an extremely simple p2p file transfer webapp. It depends on [PeerJS](http://peerjs.com) to manage the p2p connections. The webapp, in rare cases, uses a turn server to relay the connection in case where the peers cannot reach each other due to certain obvious reasons.
+Brdgd (read bridged) is an extremely simple P2P file transfer webapp. It depends on [PeerJS](http://peerjs.com) to manage the P2P connections. The webapp, in rare cases, uses a turn server to relay the connection in case where the peers cannot reach each other due to certain obvious reasons.
 
 ## Deploy
 
