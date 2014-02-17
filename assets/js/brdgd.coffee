@@ -103,6 +103,12 @@ class Brdgd
 				@reset()
 				history.pushState null, null, '/'
 
+			$('#address').tooltip
+				placement: 'bottom'
+				title: 'Share this URL'
+				trigger: 'manual'
+			$('#address').tooltip 'show'
+
 	grope: (token) ->
 		if token is @token
 			return
@@ -184,6 +190,7 @@ class Brdgd
 				@expose(event.target.files[0])
 				history.pushState null, null, "/#{@token}"
 			$input.trigger 'click'
+		$('#address').tooltip 'destroy'
 
 		$('.progress').detach()
 
