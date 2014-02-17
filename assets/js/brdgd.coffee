@@ -76,7 +76,7 @@ class Brdgd
 							conn.send 'body'
 
 							$progress = $('<div class="progress active"><div class="progress-bar" style="width: 0"></div></div>').css('width', $('#buttons').width())
-							$('body').append $progress
+							$('#container').append $progress
 
 
 							sent = 0
@@ -148,7 +148,7 @@ class Brdgd
 
 							$('#buttons .btn:nth-child(2)').html '<i class="fa fa-spinner fa-spin"></i>'
 
-							$('body').append $('<div class="progress active animated fadeIn"><div class="progress-bar" style="width: 0"></div></div>').css('width', $('#buttons').width())
+							$('#container').append $('<div class="progress active animated fadeIn"><div class="progress-bar" style="width: 0"></div></div>').css('width', $('#buttons').width())
 						break
 
 					when 'body'
