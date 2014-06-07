@@ -7,23 +7,26 @@ url = require 'url'
 
 app = express()
 
-app.configure ->
-	app.set 'port', process.env.PORT or 5000
-	app.set 'views', "#{__dirname}/views"
-	app.set 'view engine', 'jade'
+app.set 'port', process.env.PORT or 5000
+app.set 'views', "#{__dirname}/views"
+app.set 'view engine', 'jade'
 
-	app.disable 'x-powered-by'
+app.disable 'x-powered-by'
 
-	app.use express.logger 'short'
+app.use require('morgan')()
 
-	app.use require('connect-assets')
-		src: 'assets'
-		buildDir: 'public'
-		helperContext: app.locals
-	app.use express.static "#{__dirname}/public"
+app.use require('connect-assets')
+	src: [
+		"#{__dirname}/assets/css"
+		"#{__dirname}/assets/js"
+	]
+	buildDir: "public"
+	helperContext: app.locals
+app.use express.static "#{__dirname}/public"
 
 
-app.get '/api/v1/turn/credential', (req, res, next) ->
+app.route('/api/v1/turn/credential')
+.get (req, res, next) ->
 	referer = url.parse req.get('Referer') or ''
 	if referer.hostname isnt req.host
 		res.send 403
@@ -40,7 +43,8 @@ app.get '/api/v1/turn/credential', (req, res, next) ->
 		password: password
 
 
-app.get '/*',  (req, res) ->
+app.route('/*')
+.get (req, res) ->
 	res.render 'index',
 		config: _.pick process.env, [
 			'PEERJS_HOST'
@@ -55,5 +59,6 @@ app.get '/*',  (req, res) ->
 			
 
 
-app.listen app.get('port'), ->
-	console.log "Listening on #{app.get('port')}"
+port = app.get('port')
+app.listen port, ->
+	console.log "Listening on #{port}"
