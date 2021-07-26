@@ -29,6 +29,7 @@ class Brdgd
 			@peer = new Peer id,
 				host: @config.PEERJS_HOST
 				port: @config.PEERJS_PORT
+				path: @config.PEERJS_PATH
 				key: @config.PEERJS_KEY
 				config:
 					iceServers: ices

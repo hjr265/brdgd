@@ -10,6 +10,8 @@ The webapp can be deployed to Heroku as long as the following information are pr
 
 - `PEERJS_PORT`: PeerJS port
 
+- `PEERJS_PATH`: PeerJS path
+
 - `PEERJS_KEY`: PeerJS API key
 
 - `PEERJS_LOG`: PeerJS log level

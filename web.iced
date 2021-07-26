@@ -1,11 +1,14 @@
 _ = require 'underscore'
 crypto = require 'crypto'
 express = require 'express'
+http = require 'http'
 moment = require 'moment'
 url = require 'url'
+peer = require 'peer'
 
 
 app = express()
+server = http.createServer(app)
 
 app.set 'port', process.env.PORT or 5000
 app.set 'views', "#{__dirname}/views"
@@ -23,6 +26,9 @@ app.use require('connect-assets')
 	buildDir: "public"
 	helperContext: app.locals
 app.use express.static "#{__dirname}/public"
+
+app.use '/-', peer.ExpressPeerServer server,
+	key: process.env.PEERJS_KEY
 
 
 app.route('/api/v1/turn/credential')
@@ -49,6 +55,7 @@ app.route('/*')
 		config: _.pick process.env, [
 			'PEERJS_HOST'
 			'PEERJS_PORT'
+			'PEERJS_PATH'
 			'PEERJS_KEY'
 			'PEERJS_LOG'
 			'STUN_HOST'
@@ -60,5 +67,5 @@ app.route('/*')
 
 
 port = app.get('port')
-app.listen port, ->
+server.listen port, '0.0.0.0', ->
 	console.log "Listening on #{port}"
