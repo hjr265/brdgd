@@ -4,5 +4,7 @@ node_modules
 *.sublime-*
 
 *.css
+*.css.gz
 *.js
+*.js.gz
 .env
