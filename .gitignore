@@ -3,8 +3,9 @@ node_modules
 
 *.sublime-*
 
-*.css
-*.css.gz
-*.js
-*.js.gz
+public/*.css
+public/*.css.gz
+public/*.js
+public/*.js.gz
+public/manifest.json
 .env
