@@ -33,7 +33,8 @@ class Brdgd
 				config:
 					iceServers: ices
 				debug: @config.PEERJS_LOG
-			done()
+			@peer.on 'open', ->
+				done()
 
 		ices = []
 		ices.push 
