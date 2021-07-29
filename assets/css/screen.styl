@@ -5,7 +5,8 @@ h3,
 h4,
 h5,
 h6,
-input
+input,
+.github-fork-ribbon:after
 	font-family 'Alegreya Sans', sans-serif
 
 #container
@@ -39,3 +40,10 @@ input[type=file]
 .progress
 	height 5px
 	margin 10px auto
+
+.github-fork-ribbon
+	&:after
+		font-weight normal
+
+	&:before
+		background-color black
