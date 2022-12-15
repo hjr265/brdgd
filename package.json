@@ -20,7 +20,7 @@
     "moment": "^2.29.4",
     "morgan": "^1.1.1",
     "peer": "^0.6.1",
-    "stylus": "^0.46.2",
+    "stylus": "^0.59.0",
     "underscore": "^1.6.0"
   },
   "engines": {
